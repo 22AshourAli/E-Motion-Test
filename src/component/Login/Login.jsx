@@ -2,7 +2,7 @@ import axios, { Axios } from "axios";
 import { Formik, useFormik } from "formik";
 import React, { useContext, useState } from "react";
 import { RotatingLines } from "react-loader-spinner";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import { AuthenticationContext } from "../../Context/Authentication/Authentication";
 import { cartContext } from "../../Context/Cart/Cart";
@@ -60,7 +60,7 @@ const Login = () => {
 
   return (
     <>
-      <section className="w-75 m-auto py-3">
+      <section className="login-form m-auto py-3">
         <h2 className="text-center">Login Form</h2>
 
         {errorMessage ? (
@@ -112,16 +112,23 @@ const Login = () => {
             ""
           )}
 
+<div className="d-flex mb-3 align-items-center ">
+
+
+<NavLink to={'/register'}>
+
+<span className=" me-2">You Can Register Now!</span>
+</NavLink>
           <h6
             style={{ cursor: "pointer" }}
-            className="mb-3  text-danger"
+            className="text-danger"
             onClick={function () {
               navigate("/forgetpassword");
             }}
           >
             forget password ?
           </h6>
-
+          </div>
           <button disabled={!(formik.dirty && formik.isValid)} type="submit" className="btn btn-success">
             {loading ? (
               <RotatingLines

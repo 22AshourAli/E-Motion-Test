@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { cartContext } from "../../Context/Cart/Cart";
 import toast from "react-hot-toast";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Cart = () => {
   let {
@@ -39,9 +39,12 @@ const Cart = () => {
   if (products == "") {
     return (
       <>
-        <div className="d-flex flex-column align-items-center justify-content-center vh-100">
+
+        <div className="d-flex flex-column align-items-center  justify-content-center vh-100">
+   
           <h2>Your cart is empty</h2>
           <h6>add some items</h6>
+          <NavLink className={'text-main '} to={'/'}>Go To Products Page</NavLink>
         </div>
       </>
     );
@@ -50,7 +53,11 @@ const Cart = () => {
   return (
     
     <>
-      <div className="container py-5 px-5 px-sm-0">
+      <div className="container position-relative py-5 px-5 px-sm-0">
+        
+        
+      <Link to={'/'}> <i  className="fa-solid fa-xmark position-absolute fs-1 top-0 end-0 text-main cursor-pointer"></i>
+      </Link>
         {products ? (
           <>
             <h2>Shopping cart:</h2>

@@ -2,7 +2,7 @@
   "name": "session",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://22AshourAli.github.io/E-Commerce-App",
+  "homepage": "https://22AshourAli.github.io/E-Motion-Test",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.5.1",
     "@heroicons/react": "^2.1.3",
@@ -29,6 +29,7 @@
     "react-scripts": "5.0.1",
     "react-scroll-up": "^1.4.0",
     "react-slick": "^0.30.1",
+    "react-toastify": "^10.0.5",
     "slick-carousel": "^1.8.1",
     "web-vitals": "^2.1.4",
     "yup": "^1.3.3"

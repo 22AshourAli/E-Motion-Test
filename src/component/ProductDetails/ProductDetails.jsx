@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useContext, useState } from "react";
 import { useQuery } from "react-query";
-import { useParams } from "react-router-dom";
+import { useParams , Link} from "react-router-dom";
 import { cartContext } from "../../Context/Cart/Cart";
 import toast from "react-hot-toast";
 import { RotatingLines } from "react-loader-spinner";
@@ -13,6 +13,7 @@ const ProductDetails = () => {
     infinite: true,
     speed: 500,
     slidesToShow: 1,
+    autoplaySpeed:1000,
     slidesToScroll: 1,
     autoplay:true,
     arrows:false,
@@ -35,12 +36,12 @@ const ProductDetails = () => {
     console.log(result);
     if (result.status === "success") {
       toast.success(result.message, {
-        duration: 1500,
+        duration: 700,
         position: "top-right",
       });
     } else {
       toast.error("Error", {
-        duration: 1500,
+        duration: 700,
         position: "top-right",
       });
     }
@@ -50,28 +51,30 @@ const ProductDetails = () => {
   let { data } = useQuery("productDetails", getProductDetails);
 
   return (
-    <div className="container py-3">
+    <div className="container py-5   position-relative">
+      <Link to={'/'}> <i  className="fa-solid fa-xmark position-absolute fs-1 top-0 end-0 text-main cursor-pointer"></i>
+      </Link>
       {data?.data.data ? (
         <div className="row g-4 align-items-center">
-          <div className="col-md-4 text-center">
+          <div className="col-md-4  text-center">
             <Slider {...settings}>
               {data.data.data.images.map((item) => (
-                <img src={item} className="w-75" alt="imagedetalis" />
+                <img src={item} className="w-100" alt="imagedetalis" />
               ))}
             </Slider>
           </div>
           <div className="col-md-8 ">
-            <h2>{data.data.data.title}</h2>
-            <p>{data.data.data.description}</p>
-            <h6>
+            <h2 className=" text-main py-3">{data.data.data.title}</h2>
+            <p className="py-3">{data.data.data.description}</p>
+            <h6 className=" py-3">
               <span className="fw-bold">Category:</span>{" "}
               {data.data.data.category.name}
             </h6>
-            <h6>
+            <h6 className=" py-3">
               <span className="fw-bold">Brand:</span>{" "}
               {data.data.data.brand.name}
             </h6>
-            <div className="d-flex justify-content-between">
+            <div className="d-flex justify-content-between py-3">
               <h6 className="text-danger">
                 <span className="fw-bold">Price:</span> {data.data.data.price}{" "}
                 EGP
@@ -81,11 +84,11 @@ const ProductDetails = () => {
                 {data.data.data.ratingsAverage}
               </h6>
             </div>
-            <button
+            <button 
               onClick={function () {
                 addProduct(data.data.data.id);
               }}
-              className="btn btn-success w-100 p-1 mt-3"
+              className="btn bg-main text-white w-100 p-1 mt-3"
             >
               {loading ? (
                 <RotatingLines

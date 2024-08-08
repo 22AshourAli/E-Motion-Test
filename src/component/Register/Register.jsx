@@ -2,7 +2,7 @@ import axios, { Axios } from "axios";
 import { Formik, useFormik } from "formik";
 import React, { useState } from "react";
 import { RotatingLines } from "react-loader-spinner";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 
 const Register = () => {
@@ -67,7 +67,7 @@ const Register = () => {
 
   return (
     <>
-      <section className="w-75 m-auto py-3">
+      <section className="register-form m-auto py-3">
         <h2 className="text-center">Register Form</h2>
 
         {errorMessage ? (
@@ -167,6 +167,10 @@ const Register = () => {
             ""
           )}
 
+<NavLink to={'/login'}>
+
+<span className="d-block my-3 me-2">Login Page Here!</span>
+</NavLink>
           <button disabled={!(formik.dirty && formik.isValid)} type="submit" className="btn btn-success">
             {loading ? (
               <RotatingLines

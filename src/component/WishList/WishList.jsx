@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { wishlistContext } from "../../Context/Wishlist/Wishlist";
 import toast from "react-hot-toast";
 import { cartContext } from "../../Context/Cart/Cart";
+import { Link, NavLink } from "react-router-dom";
 
 const WishList = () => {
   let { userWishlist, removeProductFromWishlist } = useContext(wishlistContext);
@@ -27,8 +28,11 @@ const WishList = () => {
     return (
       <>
         <div className="d-flex flex-column align-items-center justify-content-center vh-100">
+      
           <h2>Your wishlist is empty</h2>
           <h6>add some items</h6>
+          <NavLink className={'text-main '} to={'/'}>Go To Products Page</NavLink>
+
         </div>
       </>
     );
@@ -36,7 +40,9 @@ const WishList = () => {
 
   return (
     <>
-      <div className="container">
+      <div className="container position-relative">
+      <Link to={'/'}> <i  className="fa-solid fa-xmark position-absolute fs-1 top-0 end-0 text-main cursor-pointer"></i>
+      </Link>
         {userWishlist
           ? userWishlist.map((element, index) => (
               <div
