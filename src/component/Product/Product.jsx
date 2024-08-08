@@ -8,6 +8,7 @@ import { wishlistContext } from "../../Context/Wishlist/Wishlist";
 import axios from "axios";
 import ArrowUp from "../ArrowUp/ArrowUp";
 import { AuthenticationContext } from "../../Context/Authentication/Authentication";
+import { Dropdown } from "react-bootstrap"; // Ensure you have react-bootstrap installed
 
 const Product = () => {
   let { token, setToken } = useContext(AuthenticationContext);
@@ -151,11 +152,11 @@ const Product = () => {
 
       <div className="container-fluid py-5 mt-5">
         <div id="webcrumbs" className="p-4">
-          <div className="flex justify-between items-center">
-            <div className="flex items-center space-x-2">
+          <div className="d-flex justify-content-between align-items-center">
+            <div className="d-flex align-items-center space-x-2">
               <span>{filteredProducts.length}</span>
               <span>Products</span>
-              <div className="flex space-x-1">
+              <div className="d-flex space-x-1">
                 <button className={`p-1 ${viewType === 'grid' ? 'bg-main text-white' : ''}`} onClick={() => setViewType('grid')}>
                   <i className="material-symbols-outlined">grid_view</i>
                 </button>
@@ -164,8 +165,8 @@ const Product = () => {
                 </button>
               </div>
             </div>
-            <div className="flex items-center space-x-4">
-              <div className="flex category space-x-2">
+            <div className="d-flex align-items-center space-x-4">
+              <div className="d-none d-lg-flex category space-x-2">
                 {categories.map(category => (
                   <button
                     key={category}
@@ -176,7 +177,25 @@ const Product = () => {
                   </button>
                 ))}
               </div>
-              <div className="flex items-center space-x-1">
+              <div className="d-lg-none">
+                <Dropdown>
+                  <Dropdown.Toggle variant="" className="bg-main text-white" id="dropdown-basic">
+                    Categories
+                  </Dropdown.Toggle>
+                  <Dropdown.Menu>
+                    {categories.map(category => (
+                      <Dropdown.Item
+                        key={category}
+                        active={activeCategory === category}
+                        onClick={() => setActiveCategory(category)}
+                      >
+                        {category}
+                      </Dropdown.Item>
+                    ))}
+                  </Dropdown.Menu>
+                </Dropdown>
+              </div>
+              <div className="d-flex align-items-center space-x-1">
                 <span className="cursor-pointer">Sort By</span>
                 <span className="text-main">Newest First</span>
                 <i className="material-symbols-outlined text-green-700">expand_more</i>
@@ -186,10 +205,10 @@ const Product = () => {
         </div>
 
         <ArrowUp />
-        <div className={`row g-3 mt-3 ${viewType === 'list' ? 'list-view' : ''}`}>
+        <div className={`row g-2 mt-3 ${viewType === 'list' ? 'list-view' : ''}`}>
           {filteredProducts.length > 0 ? (
             filteredProducts.map((element, index) => (
-              <div key={index} className={`col-md-3 p-2 product rounded-2 col-sm-4 ${viewType === 'list' ? 'col-12' : ''}`}>
+              <div key={index} className={`col-md-3 p-2  product rounded-2 col-sm-4 ${viewType === 'list' ? 'col-12' : ''}`}>
                 <Link to={`/details/${element._id}`} className="text-decoration-none text-black">
                   <img
                     src={element.imageCover}
@@ -239,7 +258,7 @@ const Product = () => {
                   }}
                   className="btn bg-main text-white mb-2 w-100 p-1 fw-semibold"
                 >
-               Add To Cart
+                  Add To Cart
                 </button>
               </div>
             ))
