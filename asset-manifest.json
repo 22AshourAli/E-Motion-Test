@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/E-Motion-Test/static/css/main.199c8fba.css",
-    "main.js": "/E-Motion-Test/static/js/main.a7b225db.js",
+    "main.css": "/E-Motion-Test/static/css/main.590a8931.css",
+    "main.js": "/E-Motion-Test/static/js/main.f0e0cf15.js",
     "static/js/787.b11e4fa6.chunk.js": "/E-Motion-Test/static/js/787.b11e4fa6.chunk.js",
     "static/media/fa-solid-900.ttf": "/E-Motion-Test/static/media/fa-solid-900.45a265d0f07b31cde85f.ttf",
     "static/media/loading2.gif": "/E-Motion-Test/static/media/loading2.64a3b49978733bb5e3ed.gif",
@@ -18,12 +18,12 @@
     "static/media/slick.ttf": "/E-Motion-Test/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/slick.woff": "/E-Motion-Test/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/E-Motion-Test/index.html",
-    "main.199c8fba.css.map": "/E-Motion-Test/static/css/main.199c8fba.css.map",
-    "main.a7b225db.js.map": "/E-Motion-Test/static/js/main.a7b225db.js.map",
+    "main.590a8931.css.map": "/E-Motion-Test/static/css/main.590a8931.css.map",
+    "main.f0e0cf15.js.map": "/E-Motion-Test/static/js/main.f0e0cf15.js.map",
     "787.b11e4fa6.chunk.js.map": "/E-Motion-Test/static/js/787.b11e4fa6.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.199c8fba.css",
-    "static/js/main.a7b225db.js"
+    "static/css/main.590a8931.css",
+    "static/js/main.f0e0cf15.js"
   ]
 }
